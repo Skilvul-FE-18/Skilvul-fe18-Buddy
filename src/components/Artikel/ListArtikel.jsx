@@ -62,7 +62,7 @@ function ListArtikel() {
         <div className="row">
           <h3>Artikel Terbaru</h3>
           {filteredCategory.map((item) => (
-            <div className="col-lg-4 col-md-5 col-sm-8" key={item.id}>
+            <div className="col-md-4" key={item.id}>
               <CardArtikel
                 img={item.image_source}
                 kategori={item.categori}

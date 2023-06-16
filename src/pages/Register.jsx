@@ -1,6 +1,6 @@
-import signUp from "../assets/img/signUp.png";
+import signUp from "../assets/img/signup.png";
 import buddy from "../assets/img/buddy.png";
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { NavLink } from "react-router-dom";

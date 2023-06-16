@@ -1,16 +1,18 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/img/logo.png";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser, getUserById, logout} from "../redux/reducer/userReducer";
+import { logout,getUser} from "../redux/reducer/userReducer";
 import Cookies from "universal-cookie";
 import '../assets/css/Navbar.css'
 import { useEffect } from "react";
 
 const ToolsCookies = new Cookies();
 
+
 function Navbar() {
   const authStatus = useSelector((state) => state.users.authStatus);
   const userData = useSelector((state) => state.users.userData);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -18,11 +20,11 @@ function Navbar() {
    dispatch(getUser())
   }, [dispatch]);
 
-  const handleEditProfile = (id) => {
+  const handleEditProfile = () => {
     // Mengambil data pengguna berdasarkan ID
-   
+    const id = userData.id;
     navigate(`/profile/${id}`); 
-  
+    dispatch(getUser());
   }
 
   const handleLogout = () => {
@@ -31,7 +33,7 @@ function Navbar() {
     dispatch(logout());
     ToolsCookies.remove('user_data', {path: '/'})
     ToolsCookies.remove('status_login', {path: '/'})
-
+    navigate('/login')
   };
 
 
@@ -42,15 +44,15 @@ function Navbar() {
         style={{ background: "#FFFFFF" }}
       >
         <div className="container">
-          <a className="navbar-brand">
+          <a className="navbar-brand" href="#">
             <img
               src={logo}
               alt="Logo"
               width="40"
               height="40"
-              className="d-inline-block align-text-center "
+              className="d-inline-block align-text-center"
             />
-             Buddy
+            &nbsp;&nbsp;Buddy
           </a>
           <button
             className="navbar-toggler"
@@ -76,7 +78,7 @@ function Navbar() {
                 </NavLink>
               </li>
               <li className="nav-item ">
-                <NavLink className="nav-link" to="/formLaporan">
+                <NavLink className="nav-link" to="/pelaporan">
                   Pelaporan
                 </NavLink>
               </li>
@@ -109,15 +111,20 @@ function Navbar() {
                         d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
                       />
                     </svg>
-                    {userData && <span>{userData.name}</span>}
+                    {userData && <span>Welcome, {userData.name}</span>}
                   </a>
                   <ul className="dropdown-menu">
                     <li>
-                    {/* <NavLink className="nav-link" to={`/profile/${userData.id}`}> */}
-                      <button className="dropdown-item" type="button" onClick={()=> handleEditProfile(userData.id)}>
+                    <NavLink className="nav-link" to={`/dashboard`}>
+                      <button className="dropdown-item" type="button" onClick={handleEditProfile}>
+                        Dashboard
+                      </button>
+                    </NavLink>
+                    <NavLink className="nav-link" to={`/profile/${userData.id}`}>
+                      <button className="dropdown-item" type="button" onClick={handleEditProfile}>
                         Edit Profile
                       </button>
-                    {/* </NavLink> */}
+                    </NavLink>
                     </li>
                     <li>
                       <button

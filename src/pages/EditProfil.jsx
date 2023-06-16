@@ -1,40 +1,53 @@
 import { useDispatch, useSelector } from "react-redux";
 import "../assets/css/editProfile.css";
 import ikin from "../assets/img/gambar-ikin.png";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getUser, getUserById, updateUser } from "../redux/reducer/userReducer";
-import { Navbar } from "react-bootstrap";
 
 
 function EditProfil() {
   const userData = useSelector((state) => state.users.userData);
   const dispatch = useDispatch();
   const { id } = useParams();
-  const navigate = useNavigate();
 
+  const [updatedUser, setUpdatedUser] = useState({
+    username: "",
+    email: "",
+    password: "",
+    fullname: "",
+    firstname: "",
+    lastname: "",
+    address: "",
+    borndate: "",
+    gender: "",
+    age: "",
+  });
 
-  const [updatedUser, setUpdatedUser] = useState(userData);
-
-  const handleChange = (e) => {
-    setUpdatedUser((prevData) => ({
-      ...prevData,
-      [e.target.name]: e.target.value,
-    }))
-  }
-  const handleSubmit = () => {
-    dispatch(updateUser(id, updatedUser));
-    dispatch(getUserById(id));
-    navigate("/");
-  };
+  
 
   useEffect(() => {
-    setUpdatedUser(userData);
+    if (userData.length > 0) { // Periksa apakah userData memiliki data
+      const currentUser = userData.find((item) => item.id === id); // Ubah id menjadi tipe data angka
+      if (currentUser) {
+        console.log("Current User:", currentUser);
+        setUpdatedUser({
+          id: currentUser.id,
+          username: currentUser.username,
+          email: currentUser.email,
+          password: currentUser.password,
+          fullname: currentUser.fullname,
+          firstname: currentUser.firstname,
+          lastname: currentUser.lastname,
+          address: currentUser.address,
+          borndate: currentUser.borndate,
+          gender: currentUser.gender,
+          age: currentUser.age,
+        });
+      }
+    }
   }, [userData]);
 
-  useEffect(() => {
-    dispatch(getUserById(id));
-  }, [dispatch, id]);
   return (
     <>
       <main>
@@ -78,7 +91,7 @@ function EditProfil() {
                           id="username"
                           name="username"
                           value={updatedUser.username}
-                          onChange={handleChange}
+                          
                         />
                       </div>
                       <div className="form-group">
@@ -89,7 +102,7 @@ function EditProfil() {
                           id="email"
                           name="email"
                           value={updatedUser.email}
-                          onChange={handleChange}
+                         
                         />
                       </div>
                       <div className="form-group">
@@ -100,7 +113,7 @@ function EditProfil() {
                           id="firstname"
                           name="firstname"
                           value={updatedUser.firstname}
-                          onChange={handleChange}
+                          
                         />
                       </div>
                       <div className="form-group">
@@ -111,7 +124,6 @@ function EditProfil() {
                           id="lastname"
                           name="lastname"
                           value={updatedUser.lastname}
-                          onChange={handleChange}
                          
                         />
                       </div>
@@ -123,7 +135,6 @@ function EditProfil() {
                           id="password"
                           name="password"
                           value={updatedUser.password}
-                          onChange={handleChange}
                           
                         />
                       </div>
@@ -137,7 +148,7 @@ function EditProfil() {
                           id="fullname"
                           name="fullname"
                           value={updatedUser.fullname}
-                          onChange={handleChange}
+                         
                         />
                       </div>
                       <div className="form-group">
@@ -148,7 +159,7 @@ function EditProfil() {
                           id="address"
                           name="address"
                           value={updatedUser.address}
-                          onChange={handleChange}
+                          
                         />
                       </div>
                       <div className="form-group">
@@ -159,7 +170,7 @@ function EditProfil() {
                           id="borndate"
                           name="borndate"
                           value={updatedUser.borndate}
-                          onChange={handleChange}
+                          
                         />
                       </div>
                       <div className="form-group">
@@ -170,7 +181,6 @@ function EditProfil() {
                           id="gender"
                           name="gender"
                           value={updatedUser.gender}
-                          onChange={handleChange}
                          
                         />
                       </div>
@@ -182,7 +192,7 @@ function EditProfil() {
                           id="age"
                           name="age"
                           value={updatedUser.age}
-                          onChange={handleChange}
+                          
                         />
                       </div>
                     </div>
@@ -192,7 +202,7 @@ function EditProfil() {
                     <div className="col-md-12">
                       <button
                         className="btn btn-primary"
-                        onClick={handleSubmit}
+                        
                       >
                         Ubah Profile
                       </button>

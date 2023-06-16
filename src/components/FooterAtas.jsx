@@ -2,7 +2,6 @@ import { BsFacebook, BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
 import footerLogo from "../assets/img/footer-logo.png";
 import footerSkilvul from "../assets/img/footer-skilvul.png";
 import "../assets/css/FooterAtas.css";
-import { NavLink } from "react-router-dom";
 
 function FooterAtas() {
   return (
@@ -47,24 +46,13 @@ function FooterAtas() {
               <p className="text-heading-footer">Sitemap</p>
               <ul className="list-group">
                 <li>
-                  <NavLink className="nav-link text-light" to="/">
-                  <a>Beranda</a>
-                  </NavLink>
+                  <a href="/landingpage.html">Beranda</a>
                 </li>
                 <li>
-                <NavLink className="nav-link text-light" to="/tentangKami">
-                  <a>Tentang Kami</a>
-                  </NavLink>
+                  <a href="/tentangKami.html">Tentang Kami</a>
                 </li>
                 <li>
-                <NavLink className="nav-link text-light" to="/formLaporan">
-                  <a>Form Laporan</a>
-                  </NavLink>
-                </li>
-                <li>
-                <NavLink className="nav-link text-light" to="/artikel">
-                  <a>Artikel</a>
-                  </NavLink>
+                  <a href="/pelaporan.html">Pelaporan</a>
                 </li>
               </ul>
             </div>

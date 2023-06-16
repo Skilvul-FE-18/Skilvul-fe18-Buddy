@@ -1,5 +1,6 @@
 import SideNavbar from "../components/SideNavbar";
 
+// eslint-disable-next-line react/prop-types
 function AdminLayout({children}) {
   return (
     <>

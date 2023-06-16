@@ -6,10 +6,11 @@ import {useNavigate } from "react-router-dom";
 import axios from "axios";
 import Success from '../assets/img/Success 1.png';
 import '../assets/css/FormPelaporan.css'
-
+import Cookies from 'universal-cookie'
 
 function FormPelaporan(props) {
-    const userData = useSelector((state) => state.users.userData);
+    const ToolsCookies = new Cookies()
+    let userData = ToolsCookies.get("user_data")
     const [laporan, setLaporan] = useState({
       judul : "",
       isi : "",
@@ -17,6 +18,7 @@ function FormPelaporan(props) {
       instansi : "",
       tanggal : "",
       lokasi : "",
+      status : "Menunggu",
     })
     const [show, setShow] = useState(false);
   

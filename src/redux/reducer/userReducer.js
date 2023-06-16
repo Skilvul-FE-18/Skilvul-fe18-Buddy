@@ -32,7 +32,7 @@ export const getUserById=(id)=>async(dispatch)=>{
   
   try {
     let response = await axios(config);
-        dispatch(setUserData([response.data]));
+        dispatch(setUserData(response.data));
       } catch (error) {
         console.error('Errorbang:', error);
       }
@@ -74,7 +74,6 @@ export const userSlice = createSlice({
         userData: getDataAuth ? getDataAuth : null,
         token: null, // duration 1 day
         refreshToken: '', // duration 1 month
-        user: [],
     },
     reducers: {
         setAuthStatus: (state, action) => {
@@ -82,8 +81,7 @@ export const userSlice = createSlice({
         },
 
         setUserData: (state, action) => {
-            // state.userData = action.payload
-            state.user = action.payload
+            state.userData = action.payload
         },
 
         setToken: (state, action) => {
@@ -98,6 +96,8 @@ export const userSlice = createSlice({
             state.userData = null
             state.token = null
             state.refreshToken = null
+            ToolsCookies.remove("status_login")
+            ToolsCookies.remove("user_data")
         },
         editUser: (state, action) => {
             const { id, newData } = action.payload;
@@ -108,9 +108,6 @@ export const userSlice = createSlice({
               return user;
             });
             state.userData = updatedUserData;
-          },
-          adduser: (state, action) => {
-            state.user.push(action.payload);
           },
     }
 })
