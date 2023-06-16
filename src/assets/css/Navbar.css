@@ -1,0 +1,9 @@
+nav .active {
+  background-color:  #3366FF;
+    border-radius: 5px;
+    padding: 5px;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 24px;  
+
+}

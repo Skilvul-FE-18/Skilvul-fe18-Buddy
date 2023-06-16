@@ -1,0 +1,49 @@
+.sideNav a {
+    color: white;
+    font-family : 'Poppins', sans-serif;
+  }
+  
+  .sideNav {
+    background: linear-gradient(#000aff, #F4F7F9 );
+      border-radius: 5px;
+      box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.25);
+      color: white;
+      font-weight: bold;
+      font-family : 'Poppins', sans-serif;
+  }
+
+  .main {
+    background-color: #F4F7F9 ;
+  }
+
+  .main .parallax {
+     /* The image used */
+     background-color: #E9F3FF;
+  
+     /* Set a specific height */
+     max-height: 550px;
+   
+     /* Create the parallax scrolling effect */
+     background-attachment: fixed;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     border-radius: 10px;
+     font-family : 'Poppins', sans-serif; 
+     margin-bottom: 100px;
+  }
+
+  .main .parallax .scroll{
+    height: 75%;
+    overflow: auto;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+  }
+
+  .card-list-admin .card-category badge{
+    width: 20px;
+  }
