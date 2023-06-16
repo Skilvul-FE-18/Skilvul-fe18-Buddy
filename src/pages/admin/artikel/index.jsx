@@ -28,7 +28,7 @@ function Index() {
       <div className="row">
         <div className="col-md-12 col-sm-12 col-lg-12">
           <div className="row">
-            <h1>Dashboard</h1>
+            <h1>Dashboard Admin</h1>
             <div className="parallax">
               <div className="parallax-heading">
                 <h2>List Artikel</h2>
