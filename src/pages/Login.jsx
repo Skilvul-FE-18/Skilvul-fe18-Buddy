@@ -4,6 +4,8 @@ import buddy from "../assets/img/buddy.png";
 import imglogin from "../assets/img/login.png";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import { NavLink } from "react-router-dom";
+
 
 const ToolsCookies = new Cookies();
 
@@ -62,12 +64,12 @@ function Login() {
   return (
     <section className="container-fluid login">
       <div className="row">
-        <div className="col-md-6 kiri">
+        <div className="col-sm-12 col-md-6 kiri">
           <div className="row align-items-center">
             <img src={imglogin} alt="" />
           </div>
         </div>
-        <div className="col-md-6 kanan">
+        <div className="col-sm-12 col-md-6 kanan">
           <div className="row justify-content-center boxLogin">
             <div className="col-md-7">
               <div className="buddy">
@@ -77,7 +79,7 @@ function Login() {
               <div className="judul">
                 <h1>Masuk</h1>
                 <p>
-                  Belum punya akun? <a href="register.html">Daftar, yuk!</a>
+                  Belum punya akun? <NavLink to="/register"> <a>Daftar, yuk!</a>  </NavLink> 
                 </p>
               </div>
 

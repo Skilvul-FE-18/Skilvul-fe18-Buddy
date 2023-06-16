@@ -3,6 +3,7 @@ import buddy from "../assets/img/buddy.png";
 import React, { useState } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import { NavLink } from "react-router-dom";
 
 const cookies = new Cookies();
 
@@ -60,12 +61,12 @@ function Register() {
     <>
       <section className="container-fluid login">
         <div className="row">
-          <div className="col-md-6 kiri">
+          <div className="col-sm-12 col-md-6 kiri">
             <div className="row align-items-center">
               <img src={signUp} alt="" />
             </div>
           </div>
-          <div className="col-md-6 kanan">
+          <div className="col-sm-12 col-md-6 kanan">
             <div className="row justify-content-center boxLogin">
               <div className="col-md-7">
                 <div className="buddy mt-5">
@@ -75,7 +76,7 @@ function Register() {
                 <div className="judulSignup" style={{ padding: "30px 0" }}>
                   <h1>Daftar</h1>
                   <p>
-                    Udah Punya Akun? <a href="register.html">Masuk Sekarang</a>
+                    Udah Punya Akun? <NavLink to="/login"> <a>Masuk Sekarang</a> </NavLink>
                   </p>
                 </div>
                 <div className="mb-3">
