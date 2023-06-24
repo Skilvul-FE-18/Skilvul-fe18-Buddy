@@ -3,7 +3,7 @@ import logoBanner from "../assets/img/logo_banner.png";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import { BsArrowLeft, BsArrowRight, BsChevronCompactLeft, BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 function Banner() {
   const settings = {
@@ -21,7 +21,7 @@ function Banner() {
     const { onClick } = props;
     return (
       <div className="arrow arrow-right" onClick={onClick}>
-        <BsArrowRight />
+        <BsChevronRight />
       </div>
     );
   }
@@ -30,7 +30,7 @@ function Banner() {
     const {  onClick } = props;
     return (
       <div className="arrow arrow-left" onClick={onClick}>
-        <BsArrowLeft />
+        <BsChevronLeft />
       </div>
     );
   }

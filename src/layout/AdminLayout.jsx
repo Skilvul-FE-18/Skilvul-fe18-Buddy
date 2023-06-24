@@ -7,8 +7,10 @@ function AdminLayout({children}) {
         <div className="row min-vh-100 flex-column flex-md-row">
           <SideNavbar />
           <section className="main col py-3">
+          <div className="container">
 
           {children}
+          </div>
           </section>
         </div>
       </div>

@@ -24,7 +24,7 @@ function SideNavbar() {
     <>
       <aside className="col-12 col-md-3 col-xl-2 p-0 sideNav ">
         <nav
-          className="navbar navbar-expand-md navbar-light  flex-md-column flex-row align-items-center py-2 text-center sticky-top "
+          className="navbar navbar-expand-md navbar-light  flex-md-column flex-row align-items-center py-2 text-center sticky-top  "
           id="sidebar"
         >
           <div className="text-center p-3">
