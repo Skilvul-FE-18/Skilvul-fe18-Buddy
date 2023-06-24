@@ -1,7 +1,11 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/img/logo.png";
 import { useDispatch, useSelector } from "react-redux";
+<<<<<<< HEAD
 import { getUser, logout} from "../redux/reducer/userReducer";
+=======
+import { getUser, getUserById, logout} from "../redux/reducer/userReducer";
+>>>>>>> ab7026314dd9a7ad0d192162bfd3769b520eeede
 import Cookies from "universal-cookie";
 import '../assets/css/Navbar.css'
 import { useEffect } from "react";
@@ -39,7 +43,11 @@ function Navbar() {
         style={{ background: "#FFFFFF" }}
       >
         <div className="container">
+<<<<<<< HEAD
           <a className="navbar-brand" style={{ fontWeight:600 }}>
+=======
+          <a className="navbar-brand">
+>>>>>>> ab7026314dd9a7ad0d192162bfd3769b520eeede
             <img
               src={logo}
               alt="Logo"
@@ -47,7 +55,10 @@ function Navbar() {
               height="40"
               className="d-inline-block align-text-center "
             />
+<<<<<<< HEAD
             &nbsp;
+=======
+>>>>>>> ab7026314dd9a7ad0d192162bfd3769b520eeede
              Buddy
           </a>
           <button
