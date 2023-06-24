@@ -1,4 +1,3 @@
-
 import { useSelector } from "react-redux";
 import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
@@ -13,6 +12,7 @@ import Create from "./pages/admin/artikel/create";
 import Update from "./pages/admin/artikel/update";
 import EditProfil from './pages/EditProfil';
 import DashboardNotFound from "./components/DashboardNotFound";
+import Preview from './pages/admin/artikel/preview';
 
 
 function App() {
@@ -31,7 +31,11 @@ function App() {
           <Route exact path="/artikel" element={<Artikel />}  />
           <Route exact path="/detail/:id" element={<DetailArtikel />} />
           <Route exact path="/formLaporan" element={<FormPelaporan data="send" />} />
-          <Route exact path="/profile/:id" element={<EditProfil />} />
+          <Route exact path="/profile" element={<EditProfil />} />
+          <Route exact path="/admin/*" element={<DashboardAdmin />} />
+          <Route exact path="/admin/artikel/create" element={<Create />} />
+          <Route exact path="/admin/artikel/update/:id" element={<Update />} />
+          <Route exact path="/admin/artikel/preview/:id" element={<Preview />} />
         </Routes> 
         : 
         <Routes>
@@ -43,18 +47,12 @@ function App() {
           <Route exact path="/artikel" element={<Artikel />}  />
           <Route exact path="/detail/:id" element={<DetailArtikel />} />
           <Route exact path="/formLaporan" element={<FormPelaporan />} />
-          <Route exact path="/admin/*" element={<DashboardAdmin />} />
+          {/* <Route exact path="/admin/*" element={<DashboardAdmin />} />
           <Route exact path="/admin/artikel/create" element={<Create />} />
         <Route exact path="/admin/artikel/update/:id" element={<Update />} />
+        <Route exact path="/admin/artikel/preview/:id" element={<Preview />} /> */}
         </Routes>
       }
-      {/* <Routes>
-
-        <Route exact path="/admin/artikel" element={<DashboardAdmin />} />
-        <Route exact path="/admin/artikel/create" element={<Create />} />
-        <Route exact path="/admin/artikel/update/:id" element={<Update />} />
-      </Routes> */}
-      
       </BrowserRouter>
     </>
   );

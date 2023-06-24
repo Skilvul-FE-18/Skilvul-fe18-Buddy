@@ -54,8 +54,13 @@ function Login() {
           expires: expiresDate,
         });
 
-        window.location.href = "/";
+        if (matchedUsers.role === "admin") {
+          window.location.href = "/admin";
+        } else {
+          window.location.href = "/";
+        }
       }
+      
     } catch (error) {
       console.log(error);
     }

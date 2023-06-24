@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { PropTypes } from "prop-types";
 import ReactQuill from "react-quill";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+const MySwal = withReactContent(Swal)
 
 function FormArtikelAdmin({ onSubmit }) {
   const [value, setValue] = useState({
@@ -32,6 +36,11 @@ function FormArtikelAdmin({ onSubmit }) {
       excerpt: "",
       description: "",
     })
+    MySwal.fire(
+      'Success!',
+      'Succesfully added some Article.',
+      'success'
+    )
     setEditorValue("")
   };
   const handleChange = (e) => {
@@ -73,6 +82,7 @@ function FormArtikelAdmin({ onSubmit }) {
             className="form-control mt-2"
             id="categori"
             name="categori"
+            placeholder="masukkan kategori"
             value={value.categori}
             onChange={handleChange}
           />
@@ -84,6 +94,7 @@ function FormArtikelAdmin({ onSubmit }) {
             className="form-control mt-2"
             id="createdAt"
             name="createdAt"
+            placeholder="masukkan tanggal"
             value={value.createdAt}
             onChange={handleChange}
           />
@@ -120,7 +131,7 @@ function FormArtikelAdmin({ onSubmit }) {
         <div className="form-floating ">
           <textarea
           className="form-control"
-          placeholder="Leave a comment here"
+          placeholder="masukkan deskripsi singkat"
           id="excerpt"
             name="excerpt"
             value={value.excerpt}
@@ -153,6 +164,8 @@ function FormArtikelAdmin({ onSubmit }) {
             theme="snow"
             id="description"
             name="description"
+            placeholder="masukkan deskripsi"
+            style={{ height: "300px",marginBottom: "50px" }}
             value={editorValue}
             onChange={handleQuillChange}
             modules={modules}

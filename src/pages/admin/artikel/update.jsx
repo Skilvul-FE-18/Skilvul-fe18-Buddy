@@ -4,7 +4,11 @@ import {  updateArtikel } from "../../../redux/reducer/artikelReducer";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
+//Sweet alert with react content
+const MySwal = withReactContent(Swal)
 
 function Update() {
     const { id } = useParams();
@@ -39,6 +43,11 @@ function Update() {
           };
           const handleSubmit = () => {
             dispatch(updateArtikel(id, formData));
+            MySwal.fire(
+              'Success!',
+              'Your todo has been updated.',
+              'success'
+            )
             navigate("/admin/artikel");
           };
 

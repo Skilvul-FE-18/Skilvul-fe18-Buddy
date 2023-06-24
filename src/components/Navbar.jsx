@@ -18,11 +18,8 @@ function Navbar() {
    dispatch(getUser())
   }, [dispatch]);
 
-  const handleEditProfile = (id) => {
-    // Mengambil data pengguna berdasarkan ID
-   
-    navigate(`/profile/${id}`); 
-  
+  const handleEditProfile = () => {
+    navigate(`/profile`); 
   }
 
   const handleLogout = () => {
@@ -31,7 +28,7 @@ function Navbar() {
     dispatch(logout());
     ToolsCookies.remove('user_data', {path: '/'})
     ToolsCookies.remove('status_login', {path: '/'})
-
+    navigate("/");
   };
 
 
@@ -114,7 +111,7 @@ function Navbar() {
                   <ul className="dropdown-menu">
                     <li>
                     {/* <NavLink className="nav-link" to={`/profile/${userData.id}`}> */}
-                      <button className="dropdown-item" type="button" onClick={()=> handleEditProfile(userData.id)}>
+                      <button className="dropdown-item" type="button" onClick={()=> handleEditProfile()}>
                         Edit Profile
                       </button>
                     {/* </NavLink> */}

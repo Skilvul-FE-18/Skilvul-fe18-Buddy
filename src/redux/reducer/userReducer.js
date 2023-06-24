@@ -40,23 +40,20 @@ export const getUserById=(id)=>async(dispatch)=>{
 
 export const updateUser = (userid, userData) => async (dispatch) => {
     try {
-      // Lakukan permintaan ke API untuk memperbarui data pengguna
      let config = {
             url:`https://64532ddfe9ac46cedf1ede09.mockapi.io/Users/${userid}`,
             method: "put",
             headers: {
                 "Content-Type": "application/json",
             },
-            data: JSON.stringify(userData),
+            data: userData,
      }
      await axios(config)
 
      dispatch(editUser({
         id: userid,
-        newData: userData
+        userData: userData,
      }))
-      // Setelah mendapatkan data pengguna, panggil action creator setUserData untuk memperbarui state.userData
-      
     } catch (error) {
       console.error('ErrorUpdate:', error);
     }
@@ -100,14 +97,11 @@ export const userSlice = createSlice({
             state.refreshToken = null
         },
         editUser: (state, action) => {
-            const { id, newData } = action.payload;
-            const updatedUserData = state.userData.map((user) => {
-              if (user.id === id) {
-                return { ...user, ...newData };
-              }
-              return user;
-            });
-            state.userData = updatedUserData;
+          const { id, newData } = action.payload;
+      const index = state.user.findIndex(user => user.id === id);
+      if (index !== -1) {
+        state.user[index] = { ...state.user[index], ...newData };
+      }
           },
           adduser: (state, action) => {
             state.user.push(action.payload);
@@ -116,6 +110,6 @@ export const userSlice = createSlice({
 })
 
 
-export const { setAuthStatus,setUserData,setToken,setRefreshToken,logout,editUser } = userSlice.actions
+export const { setAuthStatus,setUserData,setToken,setRefreshToken,logout,editUser,adduser } = userSlice.actions
 
 export default userSlice.reducer
