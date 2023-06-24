@@ -15,7 +15,6 @@ const MySwal = withReactContent(Swal);
 
 function EditProfil() {
   const userData = useSelector((state) => state.users.userData);
-  console.log(userData);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
