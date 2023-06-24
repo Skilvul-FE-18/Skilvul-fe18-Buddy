@@ -1,10 +1,5 @@
 import signUp from "../assets/img/signUp.png";
 import buddy from "../assets/img/buddy.png";
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-import  { useState } from "react";
->>>>>>> 2a556c328801fdb62be103c058a3e6b5f5abc40e
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
@@ -12,12 +7,6 @@ import "../assets/css/Register.css";
 import { Button, Card, Col, Container, Image, Row } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
-=======
-import React, { useState } from "react";
-import axios from "axios";
-import Cookies from "universal-cookie";
-import { NavLink } from "react-router-dom";
->>>>>>> ab7026314dd9a7ad0d192162bfd3769b520eeede
 
 const cookies = new Cookies();
 
@@ -70,7 +59,6 @@ function Register() {
 
   };
 
-<<<<<<< HEAD
 
   const style = {
     borderRadius: "1rem"
@@ -131,113 +119,6 @@ function Register() {
           </Row>
         </Container>
       </div>
-=======
-  return (
-    <>
-      <section className="container-fluid login">
-        <div className="row">
-          <div className="col-sm-12 col-md-6 kiri">
-            <div className="row align-items-center">
-              <img src={signUp} alt="" />
-            </div>
-          </div>
-          <div className="col-sm-12 col-md-6 kanan">
-            <div className="row justify-content-center boxLogin">
-              <div className="col-md-7">
-                <div className="buddy mt-5">
-                  <img src={buddy} alt="" style={{ width: "70px" }} />
-                  <span className="buddy-text fs-6">Buddy</span>
-                </div>
-                <div className="judulSignup" style={{ padding: "30px 0" }}>
-                  <h1>Daftar</h1>
-                  <p>
-                    Udah Punya Akun? <NavLink to="/login"> <a>Masuk Sekarang</a> </NavLink>
-                  </p>
-                </div>
-                <div className="mb-3">
-                  <label className="form-label">First Name</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="firstName"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label className="form-label">Last Name</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="lastName"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label className="form-label">Full Name</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="fullName"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label className="form-label">Email</label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    id="email"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label className="form-label">Alamat Lengkap</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="address"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label className="form-label">Kata Sandi</label>
-                  <div className="input-group mb-3">
-                    <input
-                      type={visible ? "text" : "password"}
-                      value={value}
-                      onChange={(e) => setValue(e.target.value)}
-                      className="input form-control"
-                      id="password"
-                      placeholder="password"
-                      required="true"
-                      aria-label="password"
-                      aria-describedby="basic-addon1"
-                    />
-
-                    <span
-                      className="input-group-text "
-                      onClick={() => setVisible(!visible)}
-                    >
-                      <i className="fas fa-eye" id="show_eye"></i>
-                      <i className="fas fa-eye-slash d-none" id="hide_eye"></i>
-                    </span>
-                  </div>
-                </div>
-                <div className="row pt-3 mb-5">
-                  <button
-                    id="register-btn"
-                    onClick={register}
-                    className="btn btn-primary"
-                  >
-                    Daftar
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
->>>>>>> ab7026314dd9a7ad0d192162bfd3769b520eeede
     </>
   );
 }
