@@ -11,6 +11,7 @@ import iconDb from "../../../assets/img/icon_db.png";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
+
 const MySwal = withReactContent(Swal);
 
 function Index() {
@@ -46,6 +47,7 @@ function Index() {
    navigate(`/admin/artikel/preview/${id}`) 
   }
 
+
   return (
     <>
       <div className="row">
@@ -66,44 +68,7 @@ function Index() {
                   </button>
                 </NavLink>
               </div>
-              {/* <div className="scroll">
-                <div className="row">
-                  <ListArtikelAdmin
-                    artikel={artikel}
-                    onUpdateArtikel={handleUpdateArtikel}
-                    onDeleteArtikel={handleDeleteArtikel}
-                  />
-                </div>
-              </div> */}
               <div className="table">
-              {/* <table className="table table-bordered">
-              <thead>
-                <tr> 
-                  <th className="text-center" width='900px' scope="col">Tittle</th>
-                  <th className="text-center" scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    <div>
-                      <h5 className="fw-bold">Penanganan Bullying di Sekolah: Langkah-Langkah yang Efektif</h5>
-                      <div className="artikel-information d-flex mt-3">
-                       <p className="badge bg-primary">category</p>
-                        <p className="text-muted px-5">date</p>
-                      </div>
-
-                    </div>
-
-                  </th>
-                  <td className="d-flex justify-content-center">
-                    <button className="btn btn-primary ">Preview</button>
-                    <button className="btn btn-warning mx-2">Edit</button>
-                    <button className="btn btn-danger">Delete</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table> */}
             <ListArtikelAdmin
             artikel={artikel}
             onUpdateArtikel={handleUpdateArtikel}

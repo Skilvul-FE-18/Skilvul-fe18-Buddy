@@ -1,40 +1,23 @@
 import { PropTypes } from "prop-types";
+import { useState } from "react";
+import ReactPaginate from "react-paginate";
 
 function ListArtikelAdmin({artikel, onDeleteArtikel, onUpdateArtikel, onPreviewArtikel}) {
+  const ITEMS_PER_PAGE = 6;
+  const [activePage, setActivePage] = useState(1); // Halaman aktif
+  const totalItems = artikel.length; // Jumlah total artikel
+  const handlePageChange = (pageNumber) => {
+    setActivePage(pageNumber.selected + 1);
+  };
+  const startIndex = (activePage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const displayedArtikel = artikel.slice(startIndex, endIndex);
+
+
   return (
     <>
            {
-                artikel.map((item) => (
-
-          //   <div className="card card-list-admin mb-3" key={item.id}>
-          //   <div className="row g-0 align-items-center">
-          //     <div className="col-md-2">
-          //       <img src={item.image_source} className="img-fluid rounded-start" alt="..." />
-          //     </div>
-          //     <div className="col-md-8">
-          //       <div className="card-body">
-          //           <div className="card-category d-flex mt-0">
-
-          //           <p className="badge bg-primary">{item.categori}</p>
-          //           <p className="px-5">{item.createdAt}</p>
-          //           </div>
-          //         <h5 className="card-title">{item.title}</h5>
-          //         <p className="card-text">{item.excerpt}</p>
-          //         <div
-          //         className="card-text"
-          //         dangerouslySetInnerHTML={{ __html: item.description }}
-          //       ></div>
-          //       </div>
-          //     </div>
-          //     <div className="col-md-2">
-          //       <div className="card-button">
-          //           <button className="btn btn-outline-primary" onClick={()=> onUpdateArtikel(item.id)}>Edit</button>
-          //           <button className="btn btn-outline-danger" onClick={()=> onDeleteArtikel(item.id)}>Delete</button>
-          //       </div>
-          //     </div>
-          //   </div>
-          // </div>
-
+             displayedArtikel.map((item) => (
           <table className="table table-bordered" key={item.id}>
               <thead>
                 <tr> 
@@ -51,9 +34,7 @@ function ListArtikelAdmin({artikel, onDeleteArtikel, onUpdateArtikel, onPreviewA
                        <p className="badge bg-primary">{item.categori}</p>
                         <p className="text-muted px-5">{item.createdAt}</p>
                       </div>
-
                     </div>
-
                   </th>
                   <td className="d-flex justify-content-center">
                     <button className="btn btn-primary " onClick={()=> onPreviewArtikel(item.id)}>Preview</button>
@@ -65,7 +46,17 @@ function ListArtikelAdmin({artikel, onDeleteArtikel, onUpdateArtikel, onPreviewA
             </table>
                 ))
            }
-      
+           <div className="admin-pagination">
+
+       <ReactPaginate
+          pageCount={Math.ceil(totalItems / ITEMS_PER_PAGE)}
+          pageRangeDisplayed={5}
+          marginPagesDisplayed={2}
+          onPageChange={handlePageChange}
+          containerClassName="pagination"
+          activeClassName="active"
+        />
+           </div>
   
     </>
   )
