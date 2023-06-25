@@ -17,6 +17,7 @@ function FormPelaporan(props) {
       instansi : "",
       tanggal : "",
       lokasi : "",
+      status: "Menunggu"
     })
     const [show, setShow] = useState(false);
   
@@ -48,6 +49,7 @@ function FormPelaporan(props) {
               user_id: "",
             })
             handleShow();
+            nav("/dashboard")
           }
         )
       }else{

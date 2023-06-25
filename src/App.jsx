@@ -13,6 +13,7 @@ import Update from "./pages/admin/artikel/update";
 import EditProfil from './pages/EditProfil';
 import DashboardNotFound from "./components/DashboardNotFound";
 import Preview from './pages/admin/artikel/preview';
+import UserDashbaord from './pages/userDashboard'
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route exact path="/admin/artikel/create" element={<Create />} />
           <Route exact path="/admin/artikel/update/:id" element={<Update />} />
           <Route exact path="/admin/artikel/preview/:id" element={<Preview />} />
+          <Route exact path="/dashboard" element={<UserDashbaord />} />
         </Routes> 
         : 
         <Routes>

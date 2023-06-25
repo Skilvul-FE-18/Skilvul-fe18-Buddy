@@ -66,92 +66,95 @@ function Login() {
   };
 
   return (
-    <section className="container-fluid login">
-      <div className="row">
-        <div className="col-sm-12 col-md-6 kiri">
-          <div className="row align-items-center">
-            <img src={imglogin} alt="" />
-          </div>
-        </div>
-        <div className="col-sm-12 col-md-6 kanan">
-          <div className="row justify-content-center boxLogin">
-            <div className="col-md-7">
-              <div className="buddy">
-                <img src={buddy} alt="" style={{ width: "70px" }} />
-                <span className="buddy-text fs-6">Buddy</span>
+    <div className="body">
+      <div className="container">
+        <section className="container-x1">
+          <div className="row">
+            <div className="col-sm-12 col-md-6 kiri">
+              <div className="row align-items-center">
+                <img src={imglogin} alt="" />
               </div>
-              <div className="judul">
-                <h1>Masuk</h1>
-                <p>
-                  Belum punya akun? <NavLink to="/register"> <a>Daftar, yuk!</a>  </NavLink> 
-                </p>
-              </div>
-
-              <div className="mb-3">
-                <label className="form-label">Email</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="email"
-                  aria-describedby="emailHelp"
-                />
-              </div>
-              <div className="mb-3">
-                <label className="form-label">Kata Sandi</label>
-                <div className="input-group mb-3">
-                  <input
-                    type={visible ? "text" : "password"}
-                    value={value}
-                    onChange={(e) => setValue(e.target.value)}
-                    className="input form-control"
-                    id="password"
-                    placeholder="password"
-                    required="true"
-                    aria-label="password"
-                    aria-describedby="basic-addon1"
-                  />
-
-                  <span
-                    className="input-group-text "
-                    onClick={() => setVisible(!visible)}
-                  >
-                    <i className="fas fa-eye" id="show_eye"></i>
-                    <i className="fas fa-eye-slash d-none" id="hide_eye"></i>
-                  </span>
-                </div>
-              </div>
-              <div className="mb-3 form-check">
-                <input
-                  type="checkbox"
-                  className="form-check-input"
-                  id="exampleCheck1"
-                />
-                <div className="row">
-                  <div className="col">
-                    <label className="form-check-label">Ingat Saya</label>
+            </div>
+            <div className="col-sm-12 col-md-6 kanan">
+              <div className="row justify-content-center">
+                <div className="col-md-12">
+                  <div className="buddy">
+                    <img src={buddy} alt="" style={{ width: "70px" }} />
+                    <span className="buddy-text fs-6">Buddy</span>
                   </div>
-                  <div className="col lupa-password">
-                    <a href="">Lupa Password?</a>
+                  <div className="judul">
+                    <h1>Masuk</h1>
+                    <p>
+                      Belum punya akun? <NavLink to="/register"> <a>Daftar, yuk!</a>  </NavLink> 
+                    </p>
+                  </div>
+
+                  <div className="mb-3">
+                    <label className="form-label">Email</label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="email"
+                      aria-describedby="emailHelp"
+                      placeholder="Masukkan email"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label className="form-label">Kata Sandi</label>
+                    <div className="input-group mb-3">
+                      <input
+                        type={visible ? "text" : "password"}
+                        value={value}
+                        onChange={(e) => setValue(e.target.value)}
+                        className="input form-control"
+                        id="password"
+                        placeholder="password"
+                        required="true"
+                        aria-label="password"
+                        aria-describedby="basic-addon1"
+                      />
+
+                      <span
+                        className="input-group-text "
+                        onClick={() => setVisible(!visible)}
+                      >
+                        <i className="fas fa-eye" id="show_eye"></i>
+                        <i className="fas fa-eye-slash d-none" id="hide_eye"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div className="mb-3 form-check">
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      id="exampleCheck1"
+                    />
+                    <div className="row">
+                      <div className="col">
+                        <label className="form-check-label">Ingat Saya</label>
+                      </div>
+                      <div className="col lupa-password">
+                        <a href="">Lupa Password?</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <button
+                      id="login-btn"
+                      onClick={login}
+                      className="btn btn-primary"
+                    >
+                      Masuk
+                    </button>
                   </div>
                 </div>
-              </div>
-              <div className="row">
-                <button
-                  id="login-btn"
-                  onClick={login}
-                  className="btn btn-primary"
-                >
-                  Masuk
-                </button>
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
-    </section>
+    </div>
   );
 }
 
 export default Login;
-
-console.log("hi")
