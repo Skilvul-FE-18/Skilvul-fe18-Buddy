@@ -1,19 +1,8 @@
-<<<<<<< HEAD
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
-    /* background-color:  #3366FF; */
-    /* border-radius: 5px;
-    padding: 5px; */
-    color: #3366FF !important;
-    /* font-size: 16px;
-    line-height: 24px;   */
-=======
-nav .active {
-  background-color:  #3366FF;
-    border-radius: 5px;
-    padding: 5px;
-    color: #FFFFFF;
-    font-size: 16px;
-    line-height: 24px;  
->>>>>>> ab7026314dd9a7ad0d192162bfd3769b520eeede
-
+  /* background-color:  #3366FF; */
+  /* border-radius: 5px;
+  padding: 5px; */
+  color: #3366FF !important;
+  /* font-size: 16px;
+  line-height: 24px;   */
 }
