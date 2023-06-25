@@ -4,12 +4,10 @@ function CardArtikel({img, kategori, date, tittle, excerpt,onClick}) {
   const truncatedExcerpt = excerpt.length > 50 ? `${excerpt.substring(0, 50)}...` : excerpt;
   return (
     <div className="card cardList mb-3" style={{ width: "18rem",
-    height: "30rem"
+    height: "28rem"
     }}>
     <img src={img} className="card-img-top" alt="..."
-    style={{
-      maxHeight: "200px",
-    }}
+  
     />
     <div className="card-body">
       <div className="card-category">
@@ -22,10 +20,12 @@ function CardArtikel({img, kategori, date, tittle, excerpt,onClick}) {
       <p className="card-text">
         {truncatedExcerpt}
       </p>
+    </div>
+      <div className="card-readmore px-2 pb-3">
       <a className="btn btn-outline-primary" onClick={onClick}>
         Baca lebih lanjut
       </a>
-    </div>
+      </div>
   </div>
   )
 }

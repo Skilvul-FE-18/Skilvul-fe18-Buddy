@@ -59,10 +59,10 @@ function ListArtikel() {
         />
       )}
       <div className="container">
-        <div className="row">
+        <div className="row justify-content-center">
           <h3>Artikel Terbaru</h3>
           {filteredCategory.map((item) => (
-            <div className="col-lg-4 col-md-5 col-sm-8" key={item.id}>
+            <div className="col-lg-4 col-md-5 col-sm-12" key={item.id}>
               <CardArtikel
                 img={item.image_source}
                 kategori={item.categori}

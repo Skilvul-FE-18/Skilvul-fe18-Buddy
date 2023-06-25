@@ -35,6 +35,9 @@ line-height: 24px;
 text-align: justify;
 color: #404040;
 }
+.cardList .card-readmore{
+    margin: 10 10 10 10;
+}
 
 .DisclaimerArtikel {
    
