@@ -14,6 +14,7 @@ function Navbar() {
   const userData = useSelector((state) => state.users.userData);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  console.log("test")
 
   useEffect(() => {
    dispatch(getUser())
